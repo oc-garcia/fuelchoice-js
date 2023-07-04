@@ -48,10 +48,8 @@ export default function App() {
       const petrolCost = prices.petrol / efficiency.onPetrol;
       console.log(ethanolCost, petrolCost);
       if (ethanolCost < petrolCost) {
-        console.log("teste");
         return setisPetrol(false);
       } else if (ethanolCost > petrolCost) {
-        console.log("teste");
         return setisPetrol(true);
       } else {
         setDraw(true);
