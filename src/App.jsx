@@ -91,6 +91,7 @@ export default function App() {
               }}
               type="number"
               id="petrol"
+              value={prices.petrol}
             />
           </div>
           {!isSimplified && (
@@ -104,6 +105,7 @@ export default function App() {
                 }}
                 type="number"
                 id="petrol"
+                value={efficiency.onPetrol}
               />
             </div>
           )}
@@ -117,6 +119,7 @@ export default function App() {
               }}
               type="number"
               id="ethanol"
+              value={prices.ethanol}
             />
           </div>
           {!isSimplified && (
@@ -130,6 +133,7 @@ export default function App() {
                 }}
                 type="number"
                 id="ethanol"
+                value={efficiency.onEthanol}
               />
             </div>
           )}
