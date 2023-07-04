@@ -62,8 +62,8 @@ export default function App() {
       <header className="headerContainer">
         <h1 className="mainTitle">Fuel Choice</h1>
         <p className="mainDescription">
-          FuelChoice is an intuitive app that helps users decide between gasoline and ethanol by comparing their
-          cost-effectiveness based on current prices and vehicle efficiency.
+          Decide between gasoline and ethanol by comparing their cost-effectiveness based on current prices and vehicle
+          efficiency.
         </p>
         <p className="mainDescription"> Make informed fuel choices to save money and reduce environmental impact.</p>
       </header>
