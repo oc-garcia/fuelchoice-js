@@ -18,4 +18,4 @@ This is a gasoline or ethanol fuel checker project developed as part of a speed 
 ## Technologies Used
 
 - React: An open-source JavaScript library for building user interfaces.
-- CSS: Used for styling and giving a pleasant appearance to the interface.
+- CSS: Used for styling and giving a pleasant appearance to the interface. Later refactored to SASS.
