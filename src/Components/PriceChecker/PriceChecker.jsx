@@ -1,13 +1,13 @@
 import { useState } from "react";
 
 const defaultPriceState = {
-  petrol: 0,
-  ethanol: 0,
+  petrol: "",
+  ethanol: "",
 };
 
 const defaultEfficiencyState = {
-  onPetrol: 0,
-  onEthanol: 0,
+  onPetrol: "",
+  onEthanol: "",
 };
 
 export default function PriceChecker() {
