@@ -1,12 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 
-:root {
-  --background-primary: #f0a202;
-  --background-secundary: #d95d39;
-  --font-primary: #202c59;
-  --white: #ffffff;
-  --result: #581f18;
-}
+$background-primary: #c6caed;
+$background-secundary: #a28497;
+$font-primary: #4a5240;
+$white: #ffffff;
+$result: #4a5240;
 
 * {
   margin: 0;
@@ -16,7 +14,7 @@
 }
 
 body {
-  background-color: var(--background-primary);
+  background-color: $background-primary;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -32,13 +30,12 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-}
-
-.mainTitle,
-.mainDescription {
-  color: var(--font-primary);
-  line-height: 2rem;
-  text-align: center;
+  h1,
+  p {
+    color: $font-primary;
+    line-height: 2rem;
+    text-align: center;
+  }
 }
 
 .mainContainer {
@@ -53,20 +50,29 @@ body {
   align-items: center;
   gap: 1rem;
   margin-bottom: 1rem;
-  color: var(--font-primary);
+  p {
+    color: $font-primary;
+    font-weight: 700;
+  }
 }
 
 .switchContainerSimplified,
 .switchContainerDetailed {
   height: 2rem;
   width: 5rem;
-  background-color: var(--font-primary);
+  background-color: $font-primary;
   display: flex;
   align-items: center;
   justify-content: flex-start;
   padding: 1rem 0.5rem;
   border-radius: 30px;
   cursor: pointer;
+  div {
+    height: 1rem;
+    width: 1rem;
+    border-radius: 50%;
+    background-color: $background-secundary;
+  }
 }
 
 .switchContainerSimplified {
@@ -77,16 +83,9 @@ body {
   justify-content: flex-end;
 }
 
-.switchBtn {
-  height: 1rem;
-  width: 1rem;
-  border-radius: 50%;
-  background-color: var(--background-secundary);
-}
-
 .formContainer {
   padding: 2rem;
-  background-color: var(--background-secundary);
+  background-color: $background-secundary;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -100,35 +99,32 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
-}
-
-.label {
-  color: var(--font-primary);
-  font-weight: 700;
-}
-
-#ethanol,
-#petrol {
-  padding: 0.5rem;
-  text-align: center;
-  border-radius: 5px;
-  border: none;
-  font-weight: 700;
-  outline: none;
+  label {
+    color: $font-primary;
+    font-weight: 700;
+  }
+  input {
+    padding: 0.5rem;
+    text-align: center;
+    border-radius: 5px;
+    border: none;
+    font-weight: 700;
+    outline: none;
+  }
 }
 
 .submitBtn {
   padding: 1rem 2rem;
   border-radius: 5px;
   border: none;
-  background-color: var(--font-primary);
-  color: var(--white);
+  background-color: $font-primary;
+  color: $white;
   font-weight: 700;
   cursor: pointer;
 }
 
 .result {
   margin-top: 2rem;
-  color: var(--result);
+  color: $result;
   text-align: center;
 }
