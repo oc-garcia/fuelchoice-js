@@ -1,4 +1,6 @@
+import { addDoc, collection } from "firebase/firestore";
 import { useState } from "react";
+import { db } from "../../Services/firebase-config";
 
 const defaultPriceState = {
   petrol: "",
@@ -17,6 +19,8 @@ export default function PriceChecker() {
   const [isSimplified, setisSimplified] = useState(true);
   const [draw, setDraw] = useState(false);
 
+  const productRef = collection(db, "history");
+
   const resetQuery = () => {
     setDraw(false);
     setisPetrol(null);
@@ -24,7 +28,7 @@ export default function PriceChecker() {
     setPrices(defaultPriceState);
   };
 
-  const submitPrices = (e) => {
+  const submitPrices = async (e) => {
     e.preventDefault();
     if (isSimplified) {
       if (prices === defaultPriceState) {
@@ -46,14 +50,21 @@ export default function PriceChecker() {
       }
       const ethanolCost = prices.ethanol / efficiency.onEthanol;
       const petrolCost = prices.petrol / efficiency.onPetrol;
-      console.log(ethanolCost, petrolCost);
       if (ethanolCost < petrolCost) {
-        return setisPetrol(false);
+        setisPetrol(false);
       } else if (ethanolCost > petrolCost) {
-        return setisPetrol(true);
+        setisPetrol(true);
       } else {
         setDraw(true);
       }
+      await addDoc(productRef, {
+        petrolCost: prices.petrol,
+        petrolEfficiency: efficiency.onPetrol,
+        ethanolCost: prices.ethanol,
+        ethanolEfficiency: efficiency.onEthanol,
+        isPetrol: isPetrol,
+        draw: draw,
+      });
     }
   };
   return (
