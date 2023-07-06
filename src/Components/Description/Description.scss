@@ -1,0 +1,14 @@
+@import "../../styles/variables.scss";
+
+.descriptionContainer {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  p {
+    color: $font-primary;
+    line-height: 2rem;
+    text-align: center;
+  }
+}

@@ -1,48 +1,11 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+@import "../../styles/variables.scss";
 
-$background-primary: #c6caed;
-$background-secundary: #a28497;
-$font-primary: #4a5240;
-$white: #ffffff;
-$result: #4a5240;
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Roboto", sans-serif;
-}
-
-body {
-  background-color: $background-primary;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  max-width: 100vw;
-  box-sizing: border-box;
-}
-
-.headerContainer {
+.checkerContainer {
   padding: 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  h1,
-  p {
-    color: $font-primary;
-    line-height: 2rem;
-    text-align: center;
-  }
-}
-
-.mainContainer {
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 .typeContainer {

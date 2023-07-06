@@ -1,6 +1,6 @@
-import { addDoc, collection } from "firebase/firestore";
-import { useState } from "react";
-import { db } from "../../Services/firebase-config";
+import { useEffect, useState } from "react";
+import "./PriceChecker.scss";
+import { postDocs } from "../../Services/post";
 
 const defaultPriceState = {
   petrol: "",
@@ -18,17 +18,17 @@ export default function PriceChecker() {
   const [isPetrol, setisPetrol] = useState(null);
   const [isSimplified, setisSimplified] = useState(true);
   const [draw, setDraw] = useState(false);
-
-  const productRef = collection(db, "history");
+  const [submitted, setSubmitted] = useState(false);
 
   const resetQuery = () => {
     setDraw(false);
     setisPetrol(null);
     setEfficiency(defaultEfficiencyState);
     setPrices(defaultPriceState);
+    setSubmitted(false);
   };
 
-  const submitPrices = async (e) => {
+  const submitPrices = (e) => {
     e.preventDefault();
     if (isSimplified) {
       if (prices === defaultPriceState) {
@@ -57,18 +57,16 @@ export default function PriceChecker() {
       } else {
         setDraw(true);
       }
-      await addDoc(productRef, {
-        petrolCost: prices.petrol,
-        petrolEfficiency: efficiency.onPetrol,
-        ethanolCost: prices.ethanol,
-        ethanolEfficiency: efficiency.onEthanol,
-        isPetrol: isPetrol,
-        draw: draw,
-      });
+      setSubmitted(true);
     }
   };
+  useEffect(() => {
+    if (submitted) {
+      postDocs(prices, efficiency, isPetrol, draw);
+    }
+  }, [submitted]);
   return (
-    <main className="mainContainer">
+    <section className="checkerContainer">
       <div className="typeContainer">
         <p>Simplified</p>
         <div
@@ -130,7 +128,7 @@ export default function PriceChecker() {
             />
           </div>
         )}
-        <button className="submitBtn" type="submit">
+        <button className="submitBtn" type="submit" disabled={submitted ? true : false}>
           Check it out
         </button>
       </form>
@@ -148,6 +146,6 @@ export default function PriceChecker() {
           <h2 className="result">Choose either.</h2>
         </section>
       )}
-    </main>
+    </section>
   );
 }

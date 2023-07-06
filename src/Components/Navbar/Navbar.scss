@@ -1,0 +1,15 @@
+@import "../../styles/variables.scss";
+
+.navBarContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: $background-secundary;
+  gap: 5rem;
+  height: 10vh;
+  a {
+    text-decoration: none;
+    color: $white;
+    font-weight: 700;
+  }
+}
