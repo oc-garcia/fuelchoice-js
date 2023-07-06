@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./PriceChecker.scss";
-import { postDocs } from "../../Services/post";
+import { postDocs } from "../../services/post";
 
 const defaultPriceState = {
   petrol: "",
@@ -81,49 +81,49 @@ export default function PriceChecker() {
       </div>
       <form className="formContainer" onSubmit={submitPrices}>
         <div className="inputContainer">
-          <label htmlFor="petrol">Petrol Price</label>
+          <label htmlFor="petrolPrice">Petrol Price</label>
           <input
             onChange={(e) => {
               setPrices({ ...prices, petrol: e.target.value });
             }}
             type="number"
-            id="petrol"
+            id="petrolPrice"
             value={prices.petrol}
           />
         </div>
         {!isSimplified && (
           <div className="inputContainer">
-            <label htmlFor="petrol">Petrol efficiency km/l</label>
+            <label htmlFor="petrolEfficiency">Petrol efficiency km/l</label>
             <input
               onChange={(e) => {
                 setEfficiency({ ...efficiency, onPetrol: e.target.value });
               }}
               type="number"
-              id="petrol"
+              id="petrolEfficiency"
               value={efficiency.onPetrol}
             />
           </div>
         )}
         <div className="inputContainer">
-          <label htmlFor="ethanol">Ethanol Price</label>
+          <label htmlFor="ethanolPrice">Ethanol Price</label>
           <input
             onChange={(e) => {
               setPrices({ ...prices, ethanol: e.target.value });
             }}
             type="number"
-            id="ethanol"
+            id="ethanolPrice"
             value={prices.ethanol}
           />
         </div>
         {!isSimplified && (
           <div className="inputContainer">
-            <label htmlFor="ethanol">Ethanol efficiency km/l</label>
+            <label htmlFor="ethanolEfficiency">Ethanol efficiency km/l</label>
             <input
               onChange={(e) => {
                 setEfficiency({ ...efficiency, onEthanol: e.target.value });
               }}
               type="number"
-              id="ethanol"
+              id="ethanolEfficiency"
               value={efficiency.onEthanol}
             />
           </div>

@@ -1,5 +1,5 @@
-import Description from "../Components/Description/Description";
-import PriceChecker from "../Components/PriceChecker/PriceChecker";
+import Description from "../components/Description/Description";
+import PriceChecker from "../components/PriceChecker/PriceChecker";
 
 export default function Home() {
   return (

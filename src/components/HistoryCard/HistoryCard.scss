@@ -1,0 +1,26 @@
+@import "../../styles/variables.scss";
+
+.historyCardContainer {
+  list-style: none;
+  background-color: $background-secundary;
+  padding: 1rem;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  color: $result;
+  gap: 1rem;
+  div {
+    div {
+      display: flex;
+      gap: 1rem;
+      h2 {
+        font-size: large;
+        font-weight: 500;
+      }
+    }
+  }
+}
+
+.label {
+  font-weight: 700;
+}
