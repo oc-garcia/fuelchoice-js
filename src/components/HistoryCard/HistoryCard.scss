@@ -24,3 +24,10 @@
 .label {
   font-weight: 700;
 }
+
+.deleteBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}

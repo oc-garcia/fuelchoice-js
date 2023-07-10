@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.scss";
+import { Database, GasPump } from "@phosphor-icons/react";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,6 +13,7 @@ export default function Navbar() {
   return (
     <header className="navBarContainer">
       <Link to="/">
+        <GasPump size={48} />
         <h1>Fuel Choice</h1>
       </Link>
       <button className={`hamburguer ${isOpen ? "open" : ""}`} onClick={toggleMenu}>
@@ -21,7 +23,10 @@ export default function Navbar() {
       </button>
       <ul className={`menu ${isOpen ? "open" : ""}`}>
         <li>
-          <Link to="/history">History</Link>
+          <Link to="/history">
+            <Database size={18} />
+            History
+          </Link>
         </li>
       </ul>
     </header>

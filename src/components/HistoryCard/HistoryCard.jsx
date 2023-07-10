@@ -1,4 +1,7 @@
+import { Trash } from "@phosphor-icons/react";
+import { deleteDoc, doc } from "firebase/firestore";
 import "./HistoryCard.scss";
+import { db } from "../../services/firebase-config";
 
 export default function HistoryCard(Props) {
   const getResult = (prmt) => {
@@ -48,6 +51,18 @@ export default function HistoryCard(Props) {
         <p>{Props.log.ethanolEfficiency}</p>
       </div>
       <div>{getResult(Props.log)}</div>
+      <div className="deleteBtn">
+        <Trash
+          size={24}
+          onClick={async () => {
+            try {
+              await deleteDoc(doc(db, "history", Props.log.id));
+            } catch (error) {
+              console.error(error);
+            }
+          }}
+        />
+      </div>
     </li>
   );
 }

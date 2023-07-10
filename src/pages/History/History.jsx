@@ -2,7 +2,7 @@ import { collection, getDocs } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { db } from "../../services/firebase-config";
 import HistoryCard from "../../components/HistoryCard/HistoryCard";
-import './History.scss'
+import "./History.scss";
 
 export default function History() {
   const productRef = collection(db, "history");
