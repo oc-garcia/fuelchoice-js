@@ -8,6 +8,9 @@ export default function Description() {
         efficiency.
       </p>
       <p> Make informed fuel choices to save money and reduce environmental impact.</p>
+      <p>
+        Detailed queries will be <strong>saved</strong> on <strong>History</strong> tab.
+      </p>
     </section>
   );
 }

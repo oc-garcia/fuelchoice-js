@@ -7,6 +7,7 @@ import "./History.scss";
 export default function History() {
   const productRef = collection(db, "history");
   const [logs, setLogs] = useState([]);
+  const [delAction, setDelAction] = useState(false);
   useEffect(() => {
     const getHistory = async () => {
       try {
@@ -16,17 +17,25 @@ export default function History() {
         console.error(error);
       }
     };
+    if (delAction === true) {
+      setDelAction(false);
+    }
     getHistory();
-  }, []);
+  }, [delAction]);
   return (
     <main>
       <section className="historyContainer">
-        <h2 className="historyDescription">Detailed queries will be displayed here:</h2>
-        <ul>
-          {logs.map((log) => (
-            <HistoryCard key={log.id} log={log} />
-          ))}
-        </ul>
+        {logs.length !== 0 && (
+          <>
+            <h2 className="historyDescription">Detailed queries will be displayed here:</h2>
+            <ul>
+              {logs.map((log) => (
+                <HistoryCard key={log.id} log={log} setDelAction={setDelAction} />
+              ))}
+            </ul>
+          </>
+        )}
+        {logs.length === 0 && <h2 className="historyDescription">No history yet!</h2>}
       </section>
     </main>
   );

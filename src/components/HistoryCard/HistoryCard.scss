@@ -13,12 +13,14 @@
     div {
       display: flex;
       gap: 1rem;
-      h2 {
-        font-size: large;
-        font-weight: 500;
-      }
     }
   }
+}
+
+.stats {
+  font-size: large;
+  font-weight: 700;
+  color: $white;
 }
 
 .label {
